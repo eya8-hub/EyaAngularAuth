@@ -11,6 +11,15 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
+
+import { FormationsListComponent} from './components/formation-list/formation-list.component';
+import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
+import { AddFormationComponent } from './components/add-formation/add-formation.component';
+
+import { AddFournisseurComponent } from './components/add-fournisseur/add-fournisseur.component';
+
+
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -23,6 +32,15 @@ const routes: Routes = [
   { path: 'tutorials', component: TutorialsListComponent },
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent },
+  //*/formations
+  { path: 'formations', component: FormationsListComponent },
+  { path: 'formations/:id', component: FormationDetailsComponent },
+  { path: 'addFormation', component: AddFormationComponent },
+  /**fournisseurs */
+  { path: 'addFournisseur', component: AddFournisseurComponent },
+
+
+
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];

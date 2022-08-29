@@ -17,6 +17,10 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
+import { AddFormationComponent } from './components/add-formation/add-formation.component';
+import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
+import { FormationsListComponent } from './components/formation-list/formation-list.component';
+import { AddFournisseurComponent } from './components/add-fournisseur/add-fournisseur.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
     BoardUserComponent,
     AddTutorialComponent,
     TutorialDetailsComponent,
-    TutorialsListComponent
+    TutorialsListComponent,
+    AddFormationComponent,
+    FormationDetailsComponent,
+    FormationListComponent,
+    AddFournisseurComponent
   ],
   imports: [
     BrowserModule,
