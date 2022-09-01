@@ -1,0 +1,35 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Nom formateur" [(ngModel)]="formateur" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="searchFormateur()">
+          Chercher
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4> Liste des formations</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let Formation of formations; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveFormation(Formation, i)">
+        {{ Formation.titre }}
+      </li>
+    </ul>
+
+
+  </div>
+  <div class="col-md-6">
+    <app-formation-details [viewMode]="true" [currentFormation]="currentFormation"></app-formation-details>
+  </div>
+  
+  <mat-paginator [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page"
+  showFirstLastButtons>
+  
+</mat-paginator>
+
+</div>

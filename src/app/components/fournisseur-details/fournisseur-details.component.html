@@ -1,0 +1,83 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentFournisseur.id">
+        <h4>Fournisseur</h4>
+
+        <div>
+            <label><strong>Fabriquant:</strong></label> {{ currentFournisseur.fabriquant }}
+        </div>
+        <div>
+          <label><strong>Jurant</strong></label>
+          {{ currentFournisseur.jurant}}
+      </div>
+        <div>
+            <label><strong> Telephone</strong></label>
+            {{ currentFournisseur.telephone}}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+          {{ currentFournisseur.visAvis }}
+        </div>
+
+
+        <a class="badge badge-warning" routerLink="/Fournisseurs{{ currentFournisseur.id }}">
+            Edit
+        </a>
+    </div>
+
+    <div *ngIf="!currentFournisseur">
+        <br />
+        <p>Please click on formation ...</p>
+    </div>
+</div>
+
+<ng-template #editable>
+    <div *ngIf="currentFournisseur.id" class="edit-form">
+      <h4>Formation</h4>
+      <form>
+      <div class="form-group">
+        <label for="fabriquant">Fabriquant</label>
+        <input type="text" class="form-control" id="fabriquant" required [(ngModel)]="currentFournisseur.fabriquant" name="fabriquant" />
+      </div>
+      <div class="form-group">
+        <label for="jurant">Jurnat</label>
+        <input  class="form-control" id="jurant" required [(ngModel)]="currentFournisseur.jurant" name="jurant" />
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input class="form-control" id="adresse" required [(ngModel)]="currentFournisseur.adresse" name="adresse" />
+      </div>
+      <div class="form-group">
+        <label for="matricule_fiscale">Matricule fiscale</label>
+        <input class="form-control" id="matricule_fiscale" required [(ngModel)]="currentFournisseur.matricule_fiscale" name="matricule_fiscale" />
+      </div>
+
+      <div class="form-group">
+        <label for="telephone">Telephone</label>
+        <input class="form-control" id="telephone" required [(ngModel)]="currentFournisseur.telephone" name="telephone" />
+      </div>
+
+      <div class="form-group">
+          <label for="fax">Fax</label>
+          <input class="form-control" id="fax" required [(ngModel)]="currentFournisseur.fax" name="fax" />
+        </div>
+        <div class="form-group">
+          <label for="visAvis">Vis à Vis</label>
+          <input class="form-control" id="visAvis" required [(ngModel)]="currentFournisseur.visAvis" name="visAvis" />
+        </div>
+    </form>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteFournisseur()">
+        Supprimer
+      </button>
+  
+      <button type="submit" class="badge badge-success mb-2" (click)="updateFournisseur()">
+        Modifier
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentFournisseur.id">
+      <br />
+      <p>Cannot access this formation...</p>
+    </div>
+  </ng-template>

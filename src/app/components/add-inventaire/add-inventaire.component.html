@@ -1,0 +1,58 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+            <h3> Ajouter inventaire</h3>
+          <label for="reference">Reference</label>
+          <input type="text" class="form-control" id="reference" required [(ngModel)]="inventaire.reference" name="reference"/>
+        </div>
+
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select [(ngModel)]='inventaire.type' name="type" id="type" class='form-control'>
+          <option value="MAD">Mise à disposition</option>
+          <option value="Achat">Achat</option>
+          
+          </select>
+        </div>
+     
+
+        <div class="form-group">
+            <label for="marque">Marque</label>
+            <input class="form-control" id="marque" required [(ngModel)]="inventaire.marque" name="marque" />
+          </div>
+        
+          <div class="form-group">
+            <label for="numSerie">Numéro de série</label>
+            <input class="form-control" id="numSerie" required [(ngModel)]="inventaire.numSerie" name="numSerie" />
+          </div>
+          <div class="form-group">
+            <label for="dateAquis">Date Aquisition</label>
+            <input class="form-control" type="datetime-local" id="dateAquis" required [(ngModel)]="inventaire.dateAquis" name="dateAquis" />
+          </div>
+          <div class="form-group">
+            <label for="dateMEP">Date mise en place</label>
+            <input class="form-control" type="datetime-local" id="dateMEP" required [(ngModel)]="inventaire.dateMEP" name="dateMEP" />
+          </div>
+          <div class="form-group">
+            <label for="dateFinAquis">Date de fin d'aquisition</label>
+            <input class="form-control" type="datetime-local" id="dateFinAquis" required [(ngModel)]="inventaire.dateFinAquis" name="dateFinAquis" />
+          </div>
+          <div class="form-group">
+            <label for="accessoire">Accessoire</label>
+            <input class="form-control" type="text" id="accessoire" required [(ngModel)]="inventaire.accessoire" name="accessoire" />
+          </div>
+          <div class="form-group">
+            <label for="utilisation">Utilisation</label>
+            <input class="form-control" type="text" id="utilisation" required [(ngModel)]="inventaire.utilisation" name="utilisation" />
+          </div>
+         
+        <button (click)="saveInventaire()" class="btn btn-success">suivant</button>
+      </div>
+     
+      <div *ngIf="submitted">
+        <h4>inventaire was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newInventaire()">Add</button>
+      </div>
+    </div>
+  </div>

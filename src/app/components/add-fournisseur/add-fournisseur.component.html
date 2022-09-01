@@ -1,0 +1,44 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        
+        <h4> Ajouter fournisseur</h4>
+        <div class="form-group">
+          <label for="fabriquant">Fabriquant</label>
+          <input type="text" class="form-control" id="fabriquant" required [(ngModel)]="fournisseur.fabriquant" name="fabriquant" />
+        </div>
+        <div class="form-group">
+          <label for="jurant">Jurnat</label>
+          <input  class="form-control" id="jurant" required [(ngModel)]="fournisseur.jurant" name="jurant" />
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input class="form-control" id="adresse" required [(ngModel)]="fournisseur.adresse" name="adresse" />
+        </div>
+        <div class="form-group">
+          <label for="matricule_fiscale">Matricule fiscale</label>
+          <input class="form-control" id="matricule_fiscale" required [(ngModel)]="fournisseur.matricule_fiscale" name="matricule_fiscale" />
+        </div>
+  
+        <div class="form-group">
+          <label for="telephone">Telephone</label>
+          <input class="form-control" id="telephone" required [(ngModel)]="fournisseur.telephone" name="telephone" />
+        </div>
+
+        <div class="form-group">
+            <label for="fax">Fax</label>
+            <input class="form-control" id="fax" required [(ngModel)]="fournisseur.fax" name="fax" />
+          </div>
+          <div class="form-group">
+            <label for="visAvis">Vis à Vis</label>
+            <input class="form-control" id="visAvis" required [(ngModel)]="fournisseur.visAvis" name="visAvis" />
+          </div>
+  
+        <button (click)="saveFournisseur()" class="btn btn-success">Enregistrer</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4>fournisseur was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newFournisseur()">Ajouter</button>
+      </div>
+    </div>
+  </div>

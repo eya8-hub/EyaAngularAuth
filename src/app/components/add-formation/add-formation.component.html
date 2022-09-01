@@ -1,0 +1,35 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      
+      <h4> Ajouter formation</h4>
+      <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" class="form-control" id="titre" required [(ngModel)]="formation.titre" name="titre" />
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" required [(ngModel)]="formation.date" name="date" />
+      </div>
+      <div class="form-group">
+        <label for="formateur">formateur</label>
+        <input class="form-control" id="formateur" required [(ngModel)]="formation.formateur" name="formateur" />
+      </div>
+      <div class="form-group">
+        <label for="personnel">personnel</label>
+        <input class="form-control" id="personnel" required [(ngModel)]="formation.personnels" name="personnel" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control" id="description" required [(ngModel)]="formation.description" name="description" />
+      </div>
+
+      <button (click)="saveFormation()" class="btn btn-success">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Formation was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newFormation()">Add</button>
+    </div>
+  </div>
+</div>

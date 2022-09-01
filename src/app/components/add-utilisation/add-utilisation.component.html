@@ -1,0 +1,30 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+            <h3> Ajouter utilisation</h3>
+          <label for="emplacement">Emplacement</label>
+          <input type="text" class="form-control" id="emplacement" required [(ngModel)]="utilisation.emplacement" name="emplacement" />
+        </div>
+        <div class="form-group">
+          <label for="utilisation">Utilisation</label>
+          <input class="form-control" id="utilisation" required [(ngModel)]="utilisation.utilisation" name="utilisation" />
+        </div>
+        <div class="form-group">
+            <label for="responsable">Responsable</label>
+            <input class="form-control" id="responsable" required [(ngModel)]="utilisation.responsable" name="responsable" />
+          </div>
+        
+          <div class="form-group">
+            <label for="empcementDoc">Emplacement Document</label>
+            <input class="form-control" id="empcementDoc" required [(ngModel)]="utilisation.emplacementDoc" name="empcementDoc" />
+          </div>
+
+        <button (click)="saveUtilisation()" class="btn btn-success">Submit</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4> utilisation was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newUtilisation()">Add</button>
+      </div>
+    </div>
+  </div>

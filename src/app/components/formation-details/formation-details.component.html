@@ -1,0 +1,90 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentFormation.id">
+        <h4>Formation</h4>
+
+        <div>
+            <label><strong>Titre:</strong></label> {{ currentFormation.titre }}
+        </div>
+        <div>
+          <label><strong>Date</strong></label>
+          {{ currentFormation.date}}
+      </div>
+        <div>
+            <label><strong>Formateur</strong></label>
+            {{ currentFormation.formateur}}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+          {{ currentFormation.realise ? "Realise" : "A faire" }}
+        </div>
+
+
+        <a class="badge badge-warning" routerLink="/formations/{{ currentFormation.id }}">
+            Edit
+        </a>
+    </div>
+
+    <div *ngIf="!currentFormation">
+        <br />
+        <p>Please click on formation ...</p>
+    </div>
+</div>
+
+<ng-template #editable>
+    <div *ngIf="currentFormation.id" class="edit-form">
+      <h4>Formation</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="currentFormation.titre" name="title" />
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" required [(ngModel)]="currentFormation.date"
+                name="date" />
+        </div>
+        <div class="form-group">
+            <label for="formateur">Formateur</label>
+            <input class="form-control" id="formateur" required [(ngModel)]="currentFormation.formateur"
+                name="formateur" />
+        </div>
+        <div class="form-group">
+            <label for="personnel">Personnels</label>
+            <input class="form-control" id="personnel" required [(ngModel)]="currentFormation.personnels"
+                name="personnel" />
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="description" [(ngModel)]="currentFormation.description"
+            name="description" />
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentFormation.realise ? "Realise" : "A faire" }}
+        </div>
+      </form>
+  
+      <button class="badge badge-primary mr-2" *ngIf="currentFormation.realise" (click)="updateRealise(false)">
+        A faire
+      </button>
+      <button *ngIf="!currentFormation.realise" class="badge badge-primary mr-2" (click)="updateRealise(true)">
+        Realise
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteFormation()">
+        Supprimer
+      </button>
+  
+      <button type="submit" class="badge badge-success mb-2" (click)="updateFormation()">
+        Modifier
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentFormation.id">
+      <br />
+      <p>Cannot access this formation...</p>
+    </div>
+  </ng-template>
